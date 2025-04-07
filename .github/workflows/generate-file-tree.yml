@@ -1,0 +1,104 @@
+name: Generate File Tree JSON
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  generate-file-tree:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Create Directory
+        run: mkdir -p search.web
+
+      - name: Generate File Tree JSON
+        run: |
+          # Create a Node.js script to generate the file tree
+          cat > generate-tree.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+
+          // Directories to ignore
+          const ignoreDirs = ['.git', 'node_modules', '.github'];
+          
+          // Function to get file stats
+          function getFileStats(filePath) {
+            const stats = fs.statSync(filePath);
+            return {
+              size: stats.size,
+              created: stats.birthtime,
+              modified: stats.mtime,
+              isDirectory: stats.isDirectory()
+            };
+          }
+          
+          // Function to recursively scan directory
+          function scanDirectory(dirPath, basePath = '') {
+            const entries = fs.readdirSync(dirPath);
+            const result = [];
+            
+            for (const entry of entries) {
+              const fullPath = path.join(dirPath, entry);
+              const relativePath = path.join(basePath, entry);
+              const stats = getFileStats(fullPath);
+              
+              if (stats.isDirectory) {
+                // Skip top-level directories that should be ignored
+                if (ignoreDirs.includes(entry)) continue;
+                
+                const children = scanDirectory(fullPath, relativePath);
+                if (children.length > 0) {
+                  result.push({
+                    name: entry,
+                    path: relativePath,
+                    type: 'directory',
+                    size: 0, // Directories don't have a size
+                    children: children
+                  });
+                }
+              } else {
+                // Only include files that are within a directory (not top-level)
+                if (basePath) {
+                  result.push({
+                    name: entry,
+                    path: relativePath,
+                    type: 'file',
+                    size: stats.size,
+                    modified: stats.modified
+                  });
+                }
+              }
+            }
+            
+            return result;
+          }
+          
+          // Start the scan from the current directory
+          const tree = scanDirectory('.');
+          
+          // Save the result to search.web/index.json
+          fs.writeFileSync('search.web/index.json', JSON.stringify(tree, null, 2));
+          console.log('File tree JSON has been generated at search.web/index.json');
+          EOF
+          
+          # Run the script
+          node generate-tree.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add search.web/index.json
+          git commit -m "Update file tree JSON" || echo "No changes to commit"
+          git push 
