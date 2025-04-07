@@ -1,2 +1,12 @@
-current_tab_name = {"title":"Youtube","icon":"image https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png 20"}
-iframe "https://www.youtube.com" "iframe" frame_x frame_y frame_width frame_height
+tab_info = {
+  "title":"Youtube",
+  "icon":"image https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png 40"
+}
+
+if onload (
+  ifrm = "https://youtube.com".iframeNew()
+  ifrm.iframeShow()
+)
+
+ifrm.iframeResize(frame.width, frame.height - 30)
+ifrm.iframeGoto(0, -15)

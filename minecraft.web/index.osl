@@ -1,2 +1,12 @@
-current_tab_name = {"title":"Minecraft","icon":"image https://cdn.icon-icons.com/icons2/2699/PNG/512/minecraft_logo_icon_168974.png 20"}
-iframe "https://webclient.asspixel.net/versions/EaglerX/" "iframe" frame_x frame_y frame_width frame_height
+tab_info = {
+  "title":"Minecraft",
+  "icon":"image https://cdn.icon-icons.com/icons2/2699/PNG/512/minecraft_logo_icon_168974.png 40"
+}
+
+if onload (
+  ifrm = "https://webclient.asspixel.net/versions/EaglerX/".iframeNew()
+  ifrm.iframeShow()
+)
+
+ifrm.iframeResize(frame.width, frame.height - 30)
+ifrm.iframeGoto(0, -15)
