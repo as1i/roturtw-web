@@ -1,4 +1,5 @@
 {
   "web": "web.rotur.dev/",
-  "mist": "web.mistium.com/"
+  "mist": "web.mistium.com/",
+  "stormy": "https://raw.githubusercontent.com/0hStormy/roturWeb.stormy/refs/heads/main/"
 }
