@@ -47,10 +47,12 @@ jobs:
             };
           }
           
+          // Flat array to store all files
+          const allFiles = [];
+          
           // Function to recursively scan directory
           function scanDirectory(dirPath, basePath = '') {
             const entries = fs.readdirSync(dirPath);
-            const result = [];
             
             for (const entry of entries) {
               const fullPath = path.join(dirPath, entry);
@@ -58,25 +60,18 @@ jobs:
               const stats = getFileStats(fullPath);
               
               if (stats.isDirectory) {
-                // Skip top-level directories that should be ignored
+                // Skip directories that should be ignored
                 if (ignoreDirs.includes(entry)) continue;
                 
-                const children = scanDirectory(fullPath, relativePath);
-                if (children.length > 0) {
-                  result.push({
-                    name: entry,
-                    path: relativePath,
-                    type: 'directory',
-                    size: 0, // Directories don't have a size
-                    children: children
-                  });
-                }
+                // Recursively scan subdirectories
+                scanDirectory(fullPath, relativePath);
               } else {
                 // Only include files that are within a directory (not top-level)
                 if (basePath) {
-                  result.push({
+                  allFiles.push({
                     name: entry,
                     path: relativePath,
+                    directory: basePath,
                     type: 'file',
                     size: stats.size,
                     modified: stats.modified
@@ -84,15 +79,13 @@ jobs:
                 }
               }
             }
-            
-            return result;
           }
           
           // Start the scan from the current directory
-          const tree = scanDirectory('.');
+          scanDirectory('.');
           
           // Save the result to search.web/index.json
-          fs.writeFileSync('search.web/index.json', JSON.stringify(tree, null, 2));
+          fs.writeFileSync('search.web/index.json', JSON.stringify(allFiles, null, 2));
           console.log('File tree JSON has been generated at search.web/index.json');
           EOF
           
