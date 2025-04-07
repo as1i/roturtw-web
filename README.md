@@ -4,7 +4,7 @@ Origin web transfer protocol is the name for the website system contained within
 
 ## Input structure
 
-owtp://websitename.web?input=data&input2=data2
+web://websitename.web?input=data&input2=data2
 
 osl files can then use "passed_input" <- this is a variable that is equal to "data"
 and "passed_input2" <- this is a variable equal to "data2"
@@ -30,8 +30,8 @@ website.web
  
 ### example urls to access pages of this website
   
-owtp://website.web/directory1 (grabs index.osl)
+web://website.web/directory1 (grabs index.osl)
 
-owtp://website.web/directory1/file2
+web://website.web/directory1/file2
 
-owtp://website.web/directory2/index.osl
+web://website.web/directory2/index.osl

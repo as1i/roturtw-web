@@ -10,7 +10,7 @@ can = true
 )
 
 if can (
-redirect "owtp://rat.web/index.osl"
+redirect "web://rat.web/index.osl"
 )
 
 image "https://raw.githubusercontent.com/Mistium/owtp/main/rat.web/assets/rat_mouse_PNG23553.png" frame_width

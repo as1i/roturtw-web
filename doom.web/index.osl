@@ -8,5 +8,5 @@ text "Resources" 10
 loc 2 2 20 -150
 text "Doom-Hanger.obj" 8
 if clicked (
-redirect "owtp://doom.web/resources/doom-hanger.obj"
+redirect "web://doom.web/resources/doom-hanger.obj"
 )

@@ -3,4 +3,4 @@ index = data.key("tree")
 data = null
 r = ["1"] + index.len
 item = r.random
-redirect "owtp://" ++ index.[item].key("path")
+redirect "web://" ++ index.[item].key("path")

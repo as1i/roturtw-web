@@ -27,5 +27,5 @@ if Ycoor > 400 (
 
 //Please do not eat them. Regards -D.M 
 if can and mouse_down.not (
-redirect "owtp://rat.web/rat.osl"
+redirect "web://rat.web/rat.osl"
 )

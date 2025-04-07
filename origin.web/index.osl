@@ -26,22 +26,22 @@ square frame_width - 20 500 10 : c#333
 loc 2 2 20 y - 130
 text ".osl Documentation<newline>(OSL is the main scripting language used in origin os apps, websites and scripts)" 8 : c#fff
 if clicked (
-    redirect "owtp://origin.web/docs/osl/index.osl"
+    redirect "web://origin.web/docs/osl/index.osl"
 )
 loc 2 2 20 y - 180
 text ".icn Documentation<newline>(ICN is the scripting language used for drawing vector icons and images)" 8
 if clicked (
-    redirect "owtp://origin.web/docs/icn.md"
+    redirect "web://origin.web/docs/icn.md"
 )
 loc 2 2 20 y - 230
 text "OTS Documentation<newline>(OTS is a scripting language based on the python turtle for rendering vector icons and images)" 8
 if clicked (
-    redirect "owtp://origin.web/docs/tsf.md"
+    redirect "web://origin.web/docs/tsf.md"
 )
 loc 2 2 20 y - 280
 text ".ojff Documentation<newline>(OJFF is a file that contains a set of icn characters)" 8
 if clicked (
-    redirect "owtp://origin.web/docs/ojff.md"
+    redirect "web://origin.web/docs/ojff.md"
 )
 
 c #111

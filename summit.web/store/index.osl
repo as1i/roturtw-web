@@ -1,6 +1,6 @@
 if onload (
 current_tab_name = "Summit Web Store"
-store_data = "owtp:/summit.web/store/extensions.json".get()
+store_data = "web://summit.web/store/extensions.json".get()
 store_keys = store_data.getall("keys")
 store_values = store_data.getall("values")
 )

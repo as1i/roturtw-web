@@ -38,7 +38,7 @@ mainloop:
 loc 2 2 150 -50
 input 280 20 "1" : c#333
 owtp_url = "https://raw.githubusercontent.com/Mistium/owtp/main/"
-get_url = input_1.replace("owtp://",owtp_url)
+get_url = input_1.replace("web://",owtp_url)
 right_url = get_url.right(4)
 if right_url == ".web" or right_url.contains(".").not "get_url = get_url ++ "/index.osl""
 onload = false

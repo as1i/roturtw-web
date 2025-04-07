@@ -5,5 +5,5 @@ links = ["/extensions","/store","/bookmarks"]
 
 text "View store" 8
 if clicked (
-redirect "owtp://summit.web/store.osl"
+redirect "web://summit.web/store.osl"
 )

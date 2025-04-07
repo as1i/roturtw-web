@@ -1,1 +1,1 @@
-redirect "owtp://origin.web"
+redirect "web://origin.web"

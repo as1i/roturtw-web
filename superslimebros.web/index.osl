@@ -22,7 +22,7 @@ if mouse_touching (
 goto mouse_x / 30 mouse_y / 30 - 50
 square 280 40 25 : c#fff
 if clicked (
-redirect "owtp://superslimebros.web/about"
+redirect "web://superslimebros.web/about"
 )
 )
 text "About" 10 : c#000 chx#-140
