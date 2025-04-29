@@ -1,5 +1,10 @@
 {
-  "web": "web.rotur.dev/",
-  "mist": "web.mistium.com/",
-  "stormy": "raw.githubusercontent.com/0hStormy/roturWeb.stormy/refs/heads/main/"
+  "web":    "web.rotur.dev/",
+  "mist":   "web.mistium.com/",
+  "stormy": "raw.githubusercontent.com/0hStormy/roturWeb.stormy/refs/heads/main/",
+  "rtr":    "raw.githubusercontent.com/RoturTW/roturWeb.rtr/refs/heads/main/",
+  "com":    "reserved",
+  "org":    "reserved",
+  "io":     "reserved",
+  "dev":    "reserved"
 }
