@@ -1,10 +1,15 @@
 {
   "web":    "web.rotur.dev/",
   "mist":   "web.mistium.com/",
+  "soap":   "web.mistium.com/",
+  "sof":    "web.mistium.com/",
   "stormy": "raw.githubusercontent.com/0hStormy/roturWeb.stormy/refs/heads/main/",
-  "rtr":    "raw.githubusercontent.com/RoturTW/roturWeb.rtr/refs/heads/main/",
-  "com":    "reserved",
-  "org":    "reserved",
-  "io":     "reserved",
-  "dev":    "reserved"
+  "com":    "",
+  "org":    "",
+  "io":     "",
+  "dev":    "",
+  "gay":    "",
+  "rtr":    "roturweb.miyo.lol/",
+  "catgirl":"roturweb.miyo.lol/",
+  "fart":   "roturweb.miyo.lol/"
 }
