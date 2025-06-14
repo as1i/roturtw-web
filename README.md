@@ -35,3 +35,17 @@ web://website.web/directory1 (grabs index.osl)
 web://website.web/directory1/file2
 
 web://website.web/directory2/index.osl
+
+# Registering a TLD
+
+To register a TLD on the rotur web you should join the rotur discord server: https://discord.com/invite/HNycesXRy5
+
+Then put in a pull request to the /tlds.json file and setup your server to serve clients that request to your tld
+
+1 letter: 100 credits
+
+2 letters: 50 credits
+
+3 letters: 25 credits
+
+4 letters+: 10 credits
